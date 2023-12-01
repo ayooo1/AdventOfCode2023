@@ -1,4 +1,4 @@
-file = open('Problem 1\input.txt','r')
+file = open('Day 1\input.txt','r')
 ans = 0
 
 def checknum(s):
