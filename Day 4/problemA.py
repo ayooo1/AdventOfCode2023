@@ -1,0 +1,1 @@
+file = open('Day 4\input.txt','r')
