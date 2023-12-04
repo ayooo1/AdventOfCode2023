@@ -23,7 +23,4 @@ for idx,line in enumerate(file.readlines()):
     for i in range(1,w+1):
         c[idx+i+1] += c[idx+1]
 
-for k in c.values():
-    ans += k
-
-print(ans)
+print(sum(c.values()))
