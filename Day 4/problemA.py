@@ -14,13 +14,11 @@ for line in file.readlines():
         if x != '':
             y.add(x)
 
-    w = len(set(win) - set(y))
+    w = len(win & y)
     c = 0
-    if w != len(win):
-        c = 1
-        while len(win)-w>1:
-            c*=2
-            w+=1
+    if w:
+        c = 2**(w-1)
+        
     
     ans += c
 

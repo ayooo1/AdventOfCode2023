@@ -18,7 +18,7 @@ for idx,line in enumerate(file.readlines()):
         if x != '':
             y.add(x)
     
-    w = len(win) - len(win - y)
+    w = len(win & y)
 
     for i in range(1,w+1):
         c[idx+i+1] += c[idx+1]
