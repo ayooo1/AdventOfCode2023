@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 file = open('Day 5\input.txt','r')
 seed = file.readline()
 seed_num, seed_map, soil_map,fertilizer_map,water_map,light_map,temp_map,hum_map = [],{},{},{},{},{},{},{}
