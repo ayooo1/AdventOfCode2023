@@ -1,5 +1,3 @@
-from math import sqrt, floor, ceil
-
 file = open('Days of Advent Code\Day 6\input.txt','r')
 t = int("".join(file.readline().split(":")[1].strip().split()))
 d = int("".join(file.readline().split(":")[1].strip().split()))
