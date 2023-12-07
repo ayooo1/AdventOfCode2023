@@ -1,0 +1,1 @@
+file = open('Days of Advent Code\Day 8\input.txt','r')
