@@ -32,37 +32,55 @@ with open('Days of Advent Code\Day 10\input.txt','r') as file:
                     q.append((r,c))
                     s.add((r,c))
 
-    ans = 0
-    ss = set()
-    for x,y in s:
-        for dx,dy in move:
-            r,c = x+dx, y+dy
-            if -1<r<m and -1<c<n and fp[r][c] == '.':
-                q = deque([(r,c)])
-                flag = 1
-                inner_s = set()
-                inner_s.add((r,c))
-                while q:
-                    j,k = q.popleft()
-                    for d,dd in move:
-                        new_j, new_k = j+d, k+dd
-                        if new_j < 0 or new_j >= m or new_k < 0 or new_k >= n not in inner_s:
-                            flag = 0
-                            inner_s.add((new_j,new_k))
-                        if -1<new_j<m and -1<new_k<n and fp[new_j][new_k] == '.' and (new_j,new_k) not in inner_s:
-                            inner_s.add((new_j,new_k))
-                            q.append((new_j,new_k))
-        
-                if flag:
-                    ss.update(inner_s)
-
-    for x,y in ss:
-        grid[x][y] = 'Y'
-
-    for row in grid:
-        print(row)
-    print(ss)
-    print(len(ss))
+    d = [(-1,0),(0,1),(1,0),(0,-1)]
+    tube = s
+    #Part 2: find number of squares within the loop
+    res=0
+    # viable = []
+    for j in range(n):
+        par = 0
+        lr = 0
+        #0: not in a vertical tube space
+        #-1: to the left
+        #1: to the right
+        for i in range(m):
+            if (i,j) not in tube:
+                if par:
+                    # viable.append((i,j))
+                    res+=1
+            else:
+                if par:
+                    match fp[i][j]:
+                        case '-': par^=1
+                        case 'J':
+                            par^=(lr==-1)
+                            lr = 0
+                        case 'L':
+                            par^=(lr==1)
+                            lr = 0
+                        case '7':
+                            par^=1
+                            lr = -1
+                        case 'F':
+                            par^=1
+                            lr = 1
+                else:
+                    match fp[i][j]:
+                        case '-': par^=1
+                        case 'J':
+                            par^=(lr==-1)
+                            lr = 0
+                        case 'L':
+                            par^=(lr==1)
+                            lr = 0
+                        case '7':
+                            par^=1
+                            lr = -1
+                        case 'F':
+                            par^=1
+                            lr = 1
+    # print(sorted(viable))
+    print(res)
 
     '''
     
