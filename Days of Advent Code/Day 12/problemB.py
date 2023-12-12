@@ -43,10 +43,9 @@ with open('Days of Advent Code\Day 12\input.txt','r') as file:
     for line in fp:
         c,seq = line.split()
         seq = [int(x) for x in seq.strip().split(',')]
-        c = '.'+c+'.'
+        mod_c = [c]*5
+        c = '.'+'?'.join(mod_c)+'.'
+        seq *= 5
         ret += dfs(c,seq)
 
     print(ret)
-        
-            
-
