@@ -32,7 +32,6 @@ with open('Days of Advent Code\Day 10\input.txt','r') as file:
                     q.append((r,c))
                     s.add((r,c))
 
-    d = [(-1,0),(0,1),(1,0),(0,-1)]
     tube = s
     #Part 2: find number of squares within the loop
     res=0
