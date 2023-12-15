@@ -15,14 +15,12 @@ class LinkList:
         self.r = Node()
         self.l.next = self.r
         self.r.prev = self.l
-        self.length = 2
     
     def add(self,n):
         prev = self.r.prev
         prev.next, self.r.prev = n,n
         n.prev = prev
         n.next = self.r
-        self.length += 1
         return n
 
             
