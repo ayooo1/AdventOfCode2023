@@ -24,13 +24,7 @@ class LinkList:
         n.next = self.r
         self.length += 1
         return n
-    
-    def pop(self):
-        if self.length > 2:
-            to_go = self.l.next.next
-            to_go.prev = self.l
-            self.l.next = to_go
-            self.length -= 1
+
             
     
 
