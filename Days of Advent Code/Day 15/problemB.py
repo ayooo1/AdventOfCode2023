@@ -26,8 +26,6 @@ class LinkList:
         return n
 
             
-    
-
 
 with open('Days of Advent Code\Day 15\input.txt','r') as file:
     fp = file.readline().split(',')
@@ -52,17 +50,9 @@ with open('Days of Advent Code\Day 15\input.txt','r') as file:
             x,y = line.split('-')
             x = x.strip()
             y = y.strip()
-            s = 0
-            for c in x:
-                s += ord(c)
-                s*=17
-                s%=256
-            cur = m[s].l
             if x in n:
                 n[x].pop()
                 del n[x]
-        
-        cur = m[s].l
 
     ans = 0
     for key in m.keys():
