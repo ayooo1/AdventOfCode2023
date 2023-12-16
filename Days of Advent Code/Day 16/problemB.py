@@ -38,17 +38,13 @@ with open('Days of Advent Code\Day 16\input.txt','r') as file:
     temp1 = [[0]*n for _ in range(m)]
 
     lst = []
+    for j in range(n):
+        lst.append((0,j,'d'))
+        lst.append((m-1,j,'u'))
+    
     for i in range(m):
-        for j in range(n):
-            if i == 0:
-                lst.append((i,j,'d'))
-            elif i == m-1:
-                lst.append((i,j,'u'))
-            elif j == 0:
-                lst.append((i,j,'r'))
-            elif j == n-1:
-                lst.append((i,j,'l'))
-        
+        lst.append((i,0,'r'))
+        lst.append((i,n-1,'l'))
 
     for startx,starty,startd in lst:
         temp1 = [[0]*n for _ in range(m)]
@@ -76,6 +72,6 @@ with open('Days of Advent Code\Day 16\input.txt','r') as file:
             for j in range(len(fp[0])):
                 ans += temp1[i][j]
         ret = max(ans,ret)
-        
+
     print(ret)
         
