@@ -36,18 +36,13 @@ with open('Days of Advent Code\Day 16\input.txt','r') as file:
     n = len(fp[0])
     temp1 = [[0]*n for _ in range(m)]
 
-    def p():
-        for row in temp1:
-            print(row)
-        print()
-
     q = deque([(0,0,'r')])
     s = set()
     s.add((0,0,'r'))
     while q:
         x,y,d = q.popleft()
+        temp1[x][y] = 1
         if fp[x][y] == '.':
-            temp1[x][y] = 1
             r,c = x+moves[d][0],y+moves[d][1]
             if -1<r<m and -1<c<n and (r,c,d) not in s:
                 q.append((r,c,d))
@@ -58,7 +53,6 @@ with open('Days of Advent Code\Day 16\input.txt','r') as file:
                 if -1<r<m and -1<c<n and (r,c,dd) not in s:
                     q.append((r,c,dd))
                     s.add((r,c,dd))
-            temp1[x][y] = 1
 
     ans = 0
     for i in range(len(fp)):
