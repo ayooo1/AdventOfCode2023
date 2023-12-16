@@ -37,11 +37,6 @@ with open('Days of Advent Code\Day 16\input.txt','r') as file:
     n = len(fp[0])
     temp1 = [[0]*n for _ in range(m)]
 
-    def p():
-        for row in temp1:
-            print(row)
-        print()
-    
     lst = []
     for i in range(m):
         for j in range(n):
@@ -81,5 +76,6 @@ with open('Days of Advent Code\Day 16\input.txt','r') as file:
             for j in range(len(fp[0])):
                 ans += temp1[i][j]
         ret = max(ans,ret)
+        
     print(ret)
         
