@@ -25,7 +25,7 @@ with open('Days of Advent Code\Day 18\input.txt','r') as file:
     area = int(abs(area) / 2)
 
     #picks theorem
-    sq = int(area - perimeter / 2 + 1)
+    interior = int(area - perimeter / 2 + 1)
 
     print(perimeter + interior)
     
